@@ -1,6 +1,9 @@
 ## Telegraf with lm-sensors, sudo, smartmontools, nvme-cli
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/modem7/guacamole)](https://hub.docker.com/r/modem7/dnscrypt-proxy) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/modem7/guacamole/latest) [![Build Status](https://drone.modem7.com/api/badges/modem7/guacamole/status.svg)](https://drone.modem7.com/modem7/guacamole) [![GitHub last commit](https://img.shields.io/github/last-commit/modem7/guacamole)](https://github.com/modem7/guacamole)
+[![Docker Pulls](https://img.shields.io/docker/pulls/modem7/telegraf)](https://hub.docker.com/r/modem7/telegraf)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/modem7/telegraf/latest)
+[![Build Status](https://drone.modem7.com/api/badges/modem7/telegraf/status.svg)](https://drone.modem7.com/modem7/telegraf)
+[![GitHub last commit](https://img.shields.io/github/last-commit/modem7/telegraf)](https://github.com/modem7/telegraf)
 
 # S.M.A.R.T. Input Plugin
 
