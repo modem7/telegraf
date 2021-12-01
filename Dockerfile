@@ -5,4 +5,5 @@ RUN apk update && \
     lm-sensors \
     smartmontools \
 	nvme-cli \
+	sudo \
     rm -rf /var/cache/apk/* && rm -rf /tmp/*
