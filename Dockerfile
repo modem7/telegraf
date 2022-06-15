@@ -1,4 +1,4 @@
-FROM telegraf:1.22.4-alpine
+FROM telegraf:1.23.0-alpine
 
 RUN apk update && \
     apk add --no-cache \ 
