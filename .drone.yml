@@ -35,6 +35,20 @@ steps:
       - latest
       - 1.23.0
 
+  - name: pushrm-dockerhub
+    image: chko/docker-pushrm
+    environment:
+      DOCKER_USER:
+        from_secret: docker_username
+      DOCKER_PASS:
+        from_secret: docker_password
+      PUSHRM_FILE: README.md
+      PUSHRM_SHORT: Telegraf with lm-sensors, sudo, smartmontools, nvme-cli
+      PUSHRM_TARGET: modem7/telegraf
+    when:
+      status:
+        - success
+
 - name: slack
   image: themaz/drone-slack
   settings:
