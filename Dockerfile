@@ -1,3 +1,5 @@
+# syntax = docker/dockerfile:latest
+
 FROM telegraf:1.23.3-alpine
 
 RUN apk update && \

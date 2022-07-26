@@ -20,11 +20,14 @@ steps:
   image: thegeeklab/drone-docker-buildx
   privileged: true
   settings:
-    repo: modem7/telegraf
+    repo: ${DRONE_REPO}
     purge: true
     compress: true
     use_cache: true
-    cache_from: "modem7/telegraf:latest"
+    build_args: BUILDKIT_INLINE_CACHE=1
+    cache_from:
+      - ${DRONE_REPO}:latest
+      - telegraf:alpine
     platforms: # if it doesn't work run docker run --privileged --rm tonistiigi/binfmt --install all
       - linux/amd64
     username:
@@ -33,7 +36,7 @@ steps:
       from_secret: docker_password
     tags: 
       - latest
-      - 1.23.2
+      - 1.23.3
 
 - name: pushrm-dockerhub
   image: chko/docker-pushrm
@@ -44,7 +47,7 @@ steps:
       from_secret: docker_password
     PUSHRM_FILE: README.md
     PUSHRM_SHORT: Telegraf with lm-sensors, sudo, smartmontools, nvme-cli
-    PUSHRM_TARGET: modem7/telegraf
+    PUSHRM_TARGET: ${DRONE_REPO}
   when:
     status:
       - success
