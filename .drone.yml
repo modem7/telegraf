@@ -1,7 +1,12 @@
 ---
 
 kind: pipeline
-name: trigger
+type: docker
+name: latest
+
+platform:
+  os: linux
+  arch: amd64
 
 steps:
   - name: Trigger
@@ -14,22 +19,6 @@ steps:
         | grep -q -e ^[.]drone[.]
         || exit 78
 
-trigger:
-  event:
-    include:
-    - push
-
----
-
-kind: pipeline
-type: docker
-name: latest
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
   - name: Lint Dockerfile
     image: hadolint/hadolint:latest-alpine
     pull: if-not-exists
@@ -86,6 +75,3 @@ trigger:
     include:
     - push
     - custom
-
-depends_on:
-  - trigger
