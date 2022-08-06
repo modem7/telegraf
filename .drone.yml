@@ -69,8 +69,6 @@ steps:
       from_secret: slack_hook
   when:
     status: [ success, failure ]
-  depends_on:
-    - Pushrm-dockerhub
 
 trigger:
   event:
