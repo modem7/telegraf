@@ -8,5 +8,5 @@
   "labels": ["dependencies"],
   "digest": {
     "extends": ["schedule:daily"]
-  },
+  }
 }
