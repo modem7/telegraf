@@ -10,7 +10,7 @@ platform:
 
 steps:
   - name: Trigger
-    image: plugins/git
+    image: plugins/git@sha256:71b80d8d8f28c79b2dd8f437a6bb5d1409665faaa0da5d218ebfe2b5b4c81bf1
     commands:
       - test $DRONE_BUILD_EVENT = pull_request
         && DIFF_STRING=origin/${DRONE_COMMIT_BRANCH:-master}
@@ -20,14 +20,14 @@ steps:
         || exit 78
 
   - name: Lint Dockerfile
-    image: hadolint/hadolint:latest-alpine
+    image: hadolint/hadolint:latest-alpine@sha256:e6f3fb90751bd85e53e4f0b758fbd77bce25833c80d9dcdb49aabc5ee39ff018
     pull: if-not-exists
     commands:
       - hadolint --version
       - hadolint Dockerfile*
 
   - name: Build  
-    image: thegeeklab/drone-docker-buildx
+    image: thegeeklab/drone-docker-buildx@sha256:7947efacc4b1930832a39e8147e5c6c92f79b03491e5119cf5b6d3f0ac640df5
     privileged: true
     settings:
       repo: ${DRONE_REPO}
@@ -49,7 +49,7 @@ steps:
         - 1.26.0
 
   - name: Pushrm-dockerhub
-    image: chko/docker-pushrm
+    image: chko/docker-pushrm@sha256:812a950e5be7dca26cef33b61eb2076bfcfb6c2a8ec96c126371fc049c3b6608
     environment:
       DOCKER_USER:
         from_secret: docker_username
@@ -63,7 +63,7 @@ steps:
         - success
 
   - name: slack
-    image: themaz/drone-slack
+    image: themaz/drone-slack@sha256:426c92f8fa0da45301c0882c0cd5970647599998b0380899e8340d828a4eb21d
     settings:
       webhook:
         from_secret: slack_hook
