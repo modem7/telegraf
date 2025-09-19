@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:latest
 
-FROM telegraf:1.35.4-alpine
+FROM telegraf:1.36.1-alpine
 
 RUN apk update && \
     apk add --no-cache \ 
