@@ -1,11 +1,9 @@
 # syntax = docker/dockerfile:latest
-
 FROM telegraf:1.38.3-alpine
-
 RUN apk update && \
-    apk add --no-cache \ 
+    apk add --no-cache \
     lm-sensors \
     smartmontools \
-	nvme-cli \
-	sudo \
+    nvme-cli \
+    sudo && \
     rm -rf /var/cache/apk/* && rm -rf /tmp/*
